@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'react-jss';
 import { Routes } from 'react-router-dom';
-import OnlyHeader from '../pages/presentation/page-layouts/OnlyHeader';
+import InterviewTest from '../pages/presentation/page-layouts/InterviewTest';
 
 import COLORS from '../common/data/enumColors';
 
@@ -14,7 +14,7 @@ const App = () => {
 		<ThemeProvider theme={theme}>
 			<div className='app'>
 				<Routes />
-				<OnlyHeader />
+				<InterviewTest />
 			</div>
 		</ThemeProvider>
 	);
