@@ -48,7 +48,7 @@ const InterviewDebugging = () => {
 						style={{ fontSize: 'calc(3rem + 3vw)' }}>
 						<Button
 							variant='primary'
-							onClick={handleShow()}
+							onClick={handleShow}
 							style={{
 								backgroundColor: 'black',
 								color: 'white',
