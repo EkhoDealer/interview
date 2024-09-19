@@ -1,0 +1,51 @@
+components:
+    schemas:
+        creditApplication:
+            type: object
+            description: Object used to house admin around the submission
+            required:
+                - applicantDetails
+                - employmentDetails
+            properties:
+                applicantDetails:
+                    description: all applicant related information associated with a credit application
+                    type: object
+                    required:
+                        - firstName
+                        - lastName
+                        - dob
+                        - ssn
+                        - email
+                        - phoneNumber
+                        - addressLineOne
+                        - addressLineTwo
+                        - city
+                        - county
+                        - state
+                        - zip
+                    properties:
+                        firstName:
+                            type: string
+                        lastName:
+                            type: string
+                        dob:
+                            type: string
+                            description: Date of birth (encrypted string of milliseconds since UNIX epoch)
+                        ssn:
+                            type: string
+                        email:
+                            type: string
+                        phoneNumber:
+                            type: string
+                        addressLineOne:
+                            type: string
+                        addressLineTwo:
+                            type: string
+                        city:
+                            type: string
+                        county:
+                            type: string
+                        state:
+                            type: string
+                        zip:
+                            type: string
