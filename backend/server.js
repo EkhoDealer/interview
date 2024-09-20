@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import {
 	getCreditApplication,
 	submitCreditApplication,
-} from '../credit-helpers.js';
+} from './credit-helpers.js';
 
 const app = express();
 app.use(bodyParser.json());
