@@ -60,7 +60,9 @@ Please build out a multi-page modal that has the following:
    - Email
    - Age Group (18-30, 30-60, 60+)
    - Start Date of Employment
-3. A third page that relays the information back to the user, allowing them to confirm the inputs look correct. A button that then confirms and closes the modal.
+3. A third page that relays the information back to the user, allowing them to confirm the inputs look correct. A button that then closes the modal.
+
+Note: the multi-page modal should support buyers going back to previous pages.
 
 ### Part 3: Backend Development
 
