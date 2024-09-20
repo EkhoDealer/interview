@@ -29,7 +29,7 @@ Checkout the `interview-debugging` branch:
 git checkout interview-debugging
 ```
 
-Navigate to file: ```interviews/web-app/src/pages/presentation/page-layouts/InterviewDebugging.js``` and run the following command:
+In your code editor, navigate to file: ```interviews/web-app/src/pages/presentation/page-layouts/InterviewDebugging.js``` and run the following command in your terminal:
 
 ```bash
 npm start
@@ -39,11 +39,21 @@ You should see a localhost webpage start with a blank screen. Please debug the i
 
 ### Part 2: Frontend Development
 
-Checkout the `interview-frontend` branch:
+Checkout the `dev` branch:
 
 ```bash
-git checkout interview-frontend
+git checkout dev
 ```
+
+In your code editor, navigate to file: ```interviews/web-app/src/pages/presentation/page-layouts/InterviewFrontend.js``` and run the following command in your terminal:
+
+```bash
+npm start
+```
+
+You should see a localhost webpage start with a generic page. Next, open a new tab in your terminal and navigate to directory ```interviews/facit```. Run `npm i` and `npm start`. This should open a new page that you can play around with. Have the interviewer orient you on what is going on within this page.
+
+Follow the instructions provided by the interviewer to create some frontend components!
 
 ### Part 3: Backend Development
 
