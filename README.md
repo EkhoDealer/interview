@@ -14,7 +14,7 @@ Below are the steps you need to follow to get started:
 
 2. Navigate into the project directory:
     ```bash
-    cd interview
+    cd ekho-interview
     ```
 
 ## Branches
@@ -66,8 +66,16 @@ Note: the multi-page modal should support buyers going back to previous pages.
 
 ### Part 3: Backend Development
 
-Checkout the `interview-backend` branch:
+Navigate to the `interviews/backend` folder. Run command
 
 ```bash
-git checkout interview-backend
+npm start
 ```
+
+Make the following changes in the `server.js` file:
+1. Design and implement two endpoints:
+   - Create credit application
+         - Note: object being "saved" should be a reasonable schema based on credit application info collected in part 2
+   - Fetch credit application
+2. Finally, connect the two! Go back to the frontend and - in the final modal page - make a successful create credit application call passing in the data collected.
+     
