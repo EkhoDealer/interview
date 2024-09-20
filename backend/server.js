@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // GET /credit-apps
 // This will return a a specified credit app.
 
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
 });
