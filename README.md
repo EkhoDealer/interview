@@ -14,7 +14,7 @@ Below are the steps you need to follow to get started:
 
 2. Navigate into the project directory:
     ```bash
-    cd ekho-interview
+    cd interview
     ```
 
 ## Branches
