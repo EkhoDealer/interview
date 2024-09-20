@@ -2,93 +2,93 @@ import React, { useState, useEffect } from 'react';
 import Button from '../../../components/bootstrap/Button';
 import PageWrapper from '../../../layout/PageWrapper/PageWrapper';
 import Page from '../../../layout/Page/Page';
-import Modal, {
-	ModalBody,
-	ModalFooter,
-	ModalHeader,
-	ModalTitle,
-} from '../../../components/bootstrap/Modal';
 
 const InterviewDebugging = () => {
-	const [showModal, setShowModal] = useState(false);
-	const [headingText, setHeadingText] = useState('Hello!');
-	const [modalShownOnce, setModalShownOnce] = useState(false);
-
-	const handleShow = () => {
-		setShowModal(true);
-		setHeadingText('Showing Modal');
-		setModalShownOnce(true);
-	};
-
-	const handleClose = () => {
-		setShowModal(false);
-	};
+	const [counter, setCounter] = useState(0);
+	const [isVisible, setIsVisible] = useState(true);
+	const [message, setMessage] = useState('');
+	const [color, setColor] = useState('#ffffff');
 
 	useEffect(() => {
-		if (!showModal && modalShownOnce) {
-			setHeadingText('Modal Acknowledged');
+		if (counter > 5) {
+			setMessage('Keep going!');
+		} else {
+			setMessage('Click to start counting!');
 		}
-	}, [showModal, modalShownOnce]);
+	}, [counter]);
+
+	useEffect(() => {
+		if (!isVisible) {
+			setColor('#e0e0e0');
+		} else {
+			setColor('#aaaaaa');
+		}
+	}, [isVisible]);
+
+	const incrementCounter = () => {
+		setCounter(counter + 1);
+		setIsVisible(!isVisible);
+	};
+
+	const resetCounter = () => {
+		setCounter(0);
+		setMessage('Counter reset!');
+	};
 
 	return (
 		<PageWrapper title='Interview Test'>
 			<Page>
 				<div className='row d-flex align-items-center h-100'>
-					<div
-						className='col-12 d-flex justify-content-center'
-						style={{ fontSize: 'calc(3rem + 3vw)' }}>
-						<p>
-							<span className='text-primary fw-bold me-1'>{headingText}</span>
-						</p>
+					<div className='col-12 d-flex justify-content-center'>
+						<p style={{ fontSize: 'calc(1.5rem + 1vw)', color }}>{message}</p>
 					</div>
 				</div>
+
 				<div className='row d-flex align-items-center h-100'>
 					<div
 						className='col-12 d-flex justify-content-center'
-						style={{ fontSize: 'calc(3rem + 3vw)' }}>
+						style={{
+							fontSize: 'calc(3rem + 3vw)',
+							backgroundColor: isVisible ? '#f8f9fa' : '#343a40',
+							color: isVisible ? '#000' : '#fff',
+						}}>
+						<div>
+							<span className='text-primary fw-bold me-1'>Counter: {counter}</span>
+						</div>
+					</div>
+				</div>
+
+				<div className='row d-flex align-items-center h-100'>
+					<div className='col-12 d-flex justify-content-center'>
 						<Button
 							variant='primary'
-							onClick={handleShow()}
+							onClick={incrementCounter()}
 							style={{
 								backgroundColor: 'black',
 								color: 'white',
 								fontSize: 'calc(2rem + 2vw)',
 								padding: '1rem 2rem',
+								border: '2px solid white',
 							}}>
-							Show Modal
+							Increment Counter
 						</Button>
 					</div>
 				</div>
-				<Modal isOpen={showModal} setIsOpen={setShowModal} centered>
-					<ModalHeader setIsOpen={setShowModal}>
-						<ModalTitle id='tour-title' className='d-flex align-items-end'>
-							<span className='ps-2'>Test Modal</span>
-						</ModalTitle>
-					</ModalHeader>
-					<ModalBody>
-						<div className='d-flex align-items-center justify-content-center'>
-							<div>
-								<h2 className='text-center'>Lorem ipsum.</h2>
-								<p className='lead text-center'>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-									eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								</p>
-							</div>
-						</div>
-					</ModalBody>
-					<ModalFooter>
-						<Button variant='danger' onClick={handleClose}>
-							No
-						</Button>
+
+				<div className='row d-flex align-items-center h-100 mt-3'>
+					<div className='col-12 d-flex justify-content-center'>
 						<Button
-							variant='success'
-							onClick={() => {
-								handleClose();
+							variant='secondary'
+							onClick={resetCounter()}
+							style={{
+								fontSize: 'calc(1rem + 1vw)',
+								padding: '0.5rem 1rem',
+								marginTop: '10px',
 							}}>
-							Yes
+							Reset Counter
 						</Button>
-					</ModalFooter>
-				</Modal>
+					</div>
+				</div>
 			</Page>
 		</PageWrapper>
 	);
