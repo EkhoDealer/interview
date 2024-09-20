@@ -53,7 +53,14 @@ npm start
 
 You should see a localhost webpage start with a generic page. Next, open a new tab in your terminal and navigate to directory ```interviews/facit```. Run `npm i --legacy-peer-deps` and `npm start`. This should open a new page that you can play around with. Have the interviewer orient you on what is going on within this page.
 
-Follow the instructions provided by the interviewer to create some frontend components!
+Please build out a multi-page modal that has the following:
+1. An initial page with some text
+2. A second page that collects the following information:
+   - Name
+   - Email
+   - Age Group (18-30, 30-60, 60+)
+   - Start Date of Employment
+3. A third page that relays the information back to the user, allowing them to confirm the inputs look correct. A button that then confirms and closes the modal.
 
 ### Part 3: Backend Development
 
