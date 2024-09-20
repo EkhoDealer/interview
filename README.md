@@ -29,6 +29,14 @@ Checkout the `interview-debugging` branch:
 git checkout interview-debugging
 ```
 
+Navigate to file: ```interviews/web-app/src/pages/presentation/page-layouts/InterviewDebugging.js``` and run the following command:
+
+```bash
+npm start
+```
+
+You should see a localhost webpage start with a blank screen. Please debug the issue.
+
 ### Part 2: Frontend Development
 
 Checkout the `interview-frontend` branch:
