@@ -45,7 +45,7 @@ Checkout the `dev` branch:
 git checkout dev
 ```
 
-In your code editor, navigate to file: ```interviews/web-app/src/pages/presentation/page-layouts/InterviewFrontend.js``` and run the following command in your terminal:
+In your code editor, navigate to file: ```interviews/web-app/src/pages/presentation/page-layouts/InterviewDebugging.js``` and run the following command in your terminal:
 
 ```bash
 npm start
