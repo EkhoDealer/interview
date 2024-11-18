@@ -51,7 +51,7 @@ In your code editor, navigate to file: ```interviews/web-app/src/pages/presentat
 npm start
 ```
 
-You should see a localhost webpage start with a generic page. Next, open a new tab in your terminal and navigate to directory ```interviews/facit```. Run `npm i --legacy-peer-deps` and `npm start`. This should open a new page that you can play around with. Have the interviewer orient you on what is going on within this page.
+You should see a localhost webpage start with a generic page. Next, open a new tab in your terminal and navigate to directory ```interviews/web-app```. Run `npm i --legacy-peer-deps && npm start`. This should open a new page that you can play around with. Have the interviewer orient you on what is going on within this page.
 
 Please build out a multi-page modal that has the following:
 1. An initial page with some text
