@@ -26,6 +26,7 @@
 		"no-use-before-define": "off",
 		"no-case-declarations": "off",
 		"no-underscore-dangle": "off",
+		"no-undefined": "off",
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"no-param-reassign": "off",
 		"no-empty": "warn",
