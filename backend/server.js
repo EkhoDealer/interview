@@ -1,9 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {
-	getCreditApplication,
 	submitCreditApplication,
-} from './credit-helpers.js';
+	getCreditApplication,
+} from './utils/credit-application.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 // TODO 2:
 // Create the "Get Credit App" API endpoint
 // -------------------------------------
-// GET /credit-apps
-// This will return a a specified credit app.
+// GET /credit-app/:id
+// This will return a specified credit app.
 
 const PORT = 5000;
 app.listen(PORT, () => {
