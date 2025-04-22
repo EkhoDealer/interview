@@ -1,5 +1,8 @@
-import { getCachedCreditReport } from './cache.js';
-import { mockGetCreditReport, mockGetCreditScore } from './mock.js';
+import {
+	mockGetCreditReport,
+	mockGetCreditScore,
+	mockGetCachedCreditReport,
+} from './mock.js';
 
 /**
  * Performs a soft credit pull to get a credit score for a particular individual
@@ -16,7 +19,7 @@ export function getCreditScore(data) {
  * @returns {Object} The credit report
  */
 export async function getCreditReport(data) {
-	const cachedCreditReport = getCachedCreditReport(data.email);
+	const cachedCreditReport = mockGetCachedCreditReport(data.email);
 	if (cachedCreditReport) {
 		return cachedCreditReport;
 	}

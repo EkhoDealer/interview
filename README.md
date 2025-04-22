@@ -73,11 +73,11 @@ Make the following changes in the `server.js` file:
 
 A non-technical member of your team has noticed a few issues with the credit application process that they have asked you to resolve:
 
-1. The credit application submission function fails for some buyers but not others. Find out what is causing failures and prevent future failures.
+1.  The credit application submission function fails for some buyers but not others.
 
-2. The credit report retrieval function is expensive and should be called at most once per buyer (as identified by email address). Despite the caching mechanism one of your ex-colleagues built, the service providing the credit reports has reported multiple requests for the same buyer.
+2.  Despite the caching mechanism one of your ex-colleagues built, the credit report retrieval function is being called more than once for some buyers. This is an expensive operation and should be called at most once per buyer across all invocations of your credit application submission function.
 
-Your team member doesn't remember which buyers had these specific issues, but they know that at least one buyer experienced each issue in the last day's submissions. They've provided a list of the buyer email addresses from the last day:
+Your team member doesn't remember which buyers had these specific issues, but they know that at least one buyer experienced each issue in the last day's submissions. They've provided a list of unique buyer's email addresses from the last day:
 
 ```
 rowan@ekho.co.za
@@ -87,7 +87,19 @@ chow@dog.com
 mr@hot.rod
 david@goliath.com
 victor@ious.com
-nadeem@work.net
+nadei@work.net
 ```
 
 Debug and optimize the code to resolve these issues.
+
+#### Notes
+
+-   Mock functions (with the `mock` prefix) all work as described and are included to simulate use of third-party services. You should not modify these functions.
+
+-   Clearing the cache may be helpful during testing.
+
+```bash
+npm run clear-cache
+```
+
+-   Buyers can be uniquely identified by their email address.

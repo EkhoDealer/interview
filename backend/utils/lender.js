@@ -1,6 +1,8 @@
-import { cacheCreditReport } from './cache.js';
 import { getCreditReport } from './credit-pull.js';
-import { mockSubmitCreditApplicationToLender } from './mock.js';
+import {
+	mockCacheCreditReport,
+	mockSubmitCreditApplicationToLender,
+} from './mock.js';
 
 /** Checks if a credit score is valid for a lender
  * @param {number} creditScore - The credit score
@@ -30,7 +32,7 @@ function isCreditScoreValidForLender(creditScore, lender) {
 
 export async function handleLenderSubmission(lender, data, creditReport) {
 	try {
-		cacheCreditReport(data.email, creditReport);
+		mockCacheCreditReport(data.email, creditReport);
 	} catch (error) {
 		console.error('Error caching credit report:', error);
 	}
@@ -58,6 +60,7 @@ export async function submitCreditApplicationToLender(
 
 	const validationResult = isCreditScoreValidForLender(creditScore, lender);
 	console.log('validationResult', validationResult);
+
 	if (!validationResult.ok) {
 		return validationResult;
 	}
