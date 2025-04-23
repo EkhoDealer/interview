@@ -1,5 +1,9 @@
-// NOTE: This is a mock implementation of the credit application process.
+// NOTE: Any functions in this file are mock implementations. We can assume they work as described.
 // Do not modify this file.
+
+import fs from 'fs';
+import path from 'path';
+import crypto from 'crypto';
 
 /**
  * Mock retreival of a credit application by id
@@ -46,7 +50,6 @@ export async function mockSubmitCreditApplicationToLender(
 	creditReport,
 	lender
 ) {
-	await new Promise((resolve) => setTimeout(resolve, 200));
 	console.log(
 		`Submitted credit application to lender: ${
 			lender.name
@@ -54,6 +57,7 @@ export async function mockSubmitCreditApplicationToLender(
 			creditReport.score
 		} and application data: ${JSON.stringify(data)}`
 	);
+	await new Promise((resolve) => setTimeout(resolve, 200));
 	return { ok: true };
 }
 
@@ -72,7 +76,7 @@ export function mockGetCreditScore(data) {
 		'mr@hot.rod': 800,
 		'david@goliath.com': 775,
 		'victor@ious.com': 250,
-		'nadeem@work.net': null,
+		'nadim@work.net': null,
 	};
 
 	let score = emailMap[email];
@@ -111,4 +115,61 @@ export async function mockGetCreditReport(data) {
 			{ lender: 'Ekho Home', date: '1970-01-01', amount: 50005000 },
 		],
 	};
+}
+
+/**
+ * Mock caching of credit application data to the local file system
+ * @param {string} email - The email associated with the credit application
+ * @param {Object} data - The credit application data to cache
+ * @returns {boolean} True if caching was successful
+ */
+export function mockCacheCreditReport(email, data) {
+	try {
+		const hash = crypto.createHash('md5').update(email).digest('hex');
+		const dirPrefix = hash.substring(0, 2);
+		const fileName = hash.substring(2) + '.json';
+
+		const cacheDir = path.join('.cache', 'credit-reports', dirPrefix);
+
+		// Create directories if they don't exist
+		fs.mkdirSync(cacheDir, { recursive: true });
+
+		const filePath = path.join(cacheDir, fileName);
+		fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+		return true;
+	} catch (error) {
+		console.error('Error caching credit report:', error);
+		return false;
+	}
+}
+
+/**
+ * Mock retrieval of cached credit report
+ * @param {string} email - The email associated with the credit report
+ * @returns {Object|null} The cached credit report or null if not found
+ */
+export function mockGetCachedCreditReport(email) {
+	try {
+		const hash = crypto.createHash('md5').update(email).digest('hex');
+		const dirPrefix = hash.substring(0, 2);
+		const fileName = hash.substring(2) + '.json';
+
+		const filePath = path.join(
+			'.cache',
+			'credit-reports',
+			dirPrefix,
+			fileName
+		);
+
+		if (fs.existsSync(filePath)) {
+			const data = fs.readFileSync(filePath, 'utf8');
+			return JSON.parse(data);
+		}
+
+		return null;
+	} catch (error) {
+		console.error('Error retrieving cached credit report:', error);
+		return null;
+	}
 }
