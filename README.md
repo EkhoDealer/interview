@@ -46,10 +46,10 @@ Please build out a multi-page modal that has the following:
 
 1. An initial page with some text
 2. A second page that collects the following information:
-    - Name
-    - Email
-    - Age Group (18-30, 30-60, 60+)
-    - Start Date of Employment
+   - Name
+   - Email
+   - Age Group (18-30, 30-60, 60+)
+   - Start Date of Employment
 3. A third page that relays the information back to the user, allowing them to confirm the inputs look correct. A button that then closes the modal.
 
 Note: the multi-page modal should support buyers going back to previous pages.
@@ -65,8 +65,8 @@ npm start
 Make the following changes in the `server.js` file:
 
 1. Design and implement two endpoints:
-    - Create credit application - Note: object being "saved" should be a reasonable schema based on credit application info collected in part 2
-    - Fetch credit application
+   - Create credit application - Note: object being "saved" should be a reasonable schema based on credit application info collected in part 2
+   - Fetch credit application
 2. Connect the two! Go back to the frontend and - in the final modal page - make a successful create credit application call passing in the data collected.
 
 ### Part 4: Backend Debugging and Optimization
@@ -87,19 +87,19 @@ chow@dog.com
 mr@hot.rod
 david@goliath.com
 victor@ious.com
-nadei@work.net
+nadim@work.net
 ```
 
 Debug and optimize the code to resolve these issues.
 
 #### Notes
 
--   Mock functions (with the `mock` prefix) all work as described and are included to simulate use of third-party services. You should not modify these functions.
+- Mock functions (with the `mock` prefix) all work as described and are included to simulate use of third-party services. You should not modify these functions.
 
--   Clearing the cache may be helpful during testing.
+- Clearing the cache may be helpful during testing.
 
 ```bash
 npm run clear-cache
 ```
 
--   Buyers can be uniquely identified by their email address.
+- Buyers can be uniquely identified by their email address.
